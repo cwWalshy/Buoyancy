@@ -8,8 +8,8 @@ import calcuations
 def main():
     pygame.init()
 
-    volumeo=2.0
-    densityl=1.0
+    volumeo=4.0
+    densityl=0
     mass=1.0
     densityo=calcuations.getdensity(mass, volumeo)
 
@@ -26,9 +26,9 @@ def main():
     surface = 150
     bottom_of_shape=surface-height_of_shape #Shape sitting ontop of surface
 
-    if densityo > densityl:
-        bottom_of_shape = 150
 
+    if densityo > densityl:
+        bottom_of_shape = 350
     print densityo
 
     bottom_of_shape = bottom_of_shape + height_of_shape*densityo
