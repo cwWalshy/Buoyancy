@@ -1,10 +1,17 @@
+from _ast import If
+
 import pygame, sys
 from pygame.locals import *
-
+import calcuations
 
 
 def main():
     pygame.init()
+
+    volumeo=2.0
+    densityl=1.0
+    mass=1.0
+    densityo=calcuations.getdensity(mass, volumeo)
 
     DISPLAY=pygame.display.set_mode((500,500),0,32)
     windowSurface = pygame.display.set_mode((500, 500), pygame.DOUBLEBUF)
@@ -15,8 +22,19 @@ def main():
     DISPLAY.fill(WHITE)
 
 
-    pygame.draw.rect(DISPLAY, blue, (0, 150, 500, 400))
-    pygame.draw.rect(DISPLAY, black, (200, 100, 150, 120)) # Change 2nd number, the lower than 150 float, after 150 sink
+    height_of_shape = 120
+    surface = 150
+    bottom_of_shape=surface-height_of_shape #Shape sitting ontop of surface
+
+    if densityo > densityl:
+        bottom_of_shape = 150
+
+    print densityo
+
+    bottom_of_shape = bottom_of_shape + height_of_shape*densityo
+
+    pygame.draw.rect(DISPLAY, blue, (0, surface, 500, 400))
+    pygame.draw.rect(DISPLAY, black, (200, bottom_of_shape, 150, height_of_shape)) # Change 2nd number, the lower than 150 float, after 150 sink
     s = pygame.Surface((1000, 750), pygame.SRCALPHA)  # per-pixel alpha
     s.fill((255, 255, 255, 128))  # notice the alpha value in the color
     windowSurface.blit(s, (0, 150))
