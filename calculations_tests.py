@@ -1,5 +1,5 @@
 from calcuations import cubic_volume, cuboid_volume
-from calcuations import pyrimidal_volume,spherical_volume, conical_volume, cylindrical_volume, prism_volume
+from calcuations import pyrimidal_volume,spherical_volume, conical_volume, cylindrical_volume, prism_volume,volume_submerged, percent_submerged
 from numpy.testing import assert_allclose
 
 def test_volume_cube():
@@ -30,4 +30,10 @@ def test_cuboid_volume():
     assert cuboid_volume(1, 1, 1) == 1
 
 
+def test_volume_submerged():
+    assert_allclose(actual=volume_submerged(fluid_density=1.0,object_density=1.0,object_volume=1.0),desired=1.0,rtol=1e-3)
+    assert_allclose(actual=volume_submerged(fluid_density=3.0, object_density=4.0, object_volume=2.0), desired=2.67, rtol=1e-2)
 
+def test_percent_submerged():
+    assert_allclose(actual=percent_submerged(volume_submerged=1.0, object_volume=1.0), desired=1.0, rtol=1e-2)
+    assert_allclose(actual=percent_submerged(volume_submerged=1.0, object_volume=4.0), desired=0.25, rtol=1e-2)

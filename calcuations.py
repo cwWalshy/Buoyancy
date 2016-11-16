@@ -1,15 +1,21 @@
 import math
 
-def length_of_side(cubic_volume):
-    cubic_volume == length_of_side**3
+def cubic_volume(length_of_side):
+    return length_of_side**3
+# length_of_side = 2
+# cubic_volume = float(length_of_side) ** 3
+# print 'The vomlume of the cube is', cubic_volume
 
-cubic_volume = 2
-cubic_volume = float(cubic_volume) ** 3
-print 'The vomlume of the cube is', cubic_volume
+
 
 def getdensity(mass, volumeo):
     return (mass/volumeo)
 
+def volume_submerged(fluid_density, object_density, object_volume):
+    return (object_density*object_volume)/fluid_density
+
+def fraction_submerged(volume_submerged, object_volume):
+    return (volume_submerged/object_volume)
 
 def pyrimidal_volume(base_length,pyramid_height):
     print base_length
