@@ -9,7 +9,7 @@ def cubic_volume(length_of_side):
 
 
 def getdensity(mass, volumeo):
-    return (mass/volumeo)
+    return mass / volumeo
 
 def volume_submerged(fluid_density, object_density, object_volume):
     return (object_density*object_volume)/fluid_density
