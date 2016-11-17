@@ -23,6 +23,9 @@ def main():
     w.label = Label(master, text="This scale changes the Mass of the object (Vertical Scale)")
     w.label.pack()
 
+    w.close_button = Button(master, text="Input", command=master.quit)
+    w.close_button.pack()
+
     print ("w", w.get())
 
     w.pack()
